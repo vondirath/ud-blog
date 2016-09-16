@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+  <form action="" method="post" id="BlogPostForm">
+	<fieldset class="postForm">
+		<span class="error">{{error}}</span>
+		<p><label for="content">Content</label>
+<textarea class="postContent" name="content">{{comment.content}}</textarea>
+	</fieldset>
+    <fieldset class="accountAction">
+        <input type="hidden" class="btn btn-primary" name="editcomment">
+		<input type="submit" class="btn btn-primary" name="submit" value="Submit">
+        </fieldset>
+    </form>
+{% endblock content %}

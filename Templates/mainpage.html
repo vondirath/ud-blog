@@ -1,0 +1,21 @@
+{# formatted this way for excessive whitespace generation #}
+{% extends "index.html" %} {% block content %} {% if error %}
+<div class="error">{{error}}</div>
+{% endif %} {% for post in posts %}
+<div class="post row">
+    <div class="border"></div>
+    <div class="col-sm-7">
+        <a href="/blog/{{post.key().id()}}">View Post</a>
+        <h3>{{post.subject}}</h3>
+        <p>{{post.content}}</p>
+        <div class="postdatetime">
+            {{post.date.strftime("%b %d, %Y") | safe}} by: {{post.author}}<br>{% if post.edited == True %} Edited: {{post.modified.strftime("%m/%d/%y")}} {% endif %}
+        </div>
+    </div>
+    <div class="col-xs-5">
+        {% if user %}
+        <a href="/blog/comment?post_id={{post.key().id()}}">Write a comment...</a>
+        <br> {% endif %}{% for comment in comments %}{% if post.key().id() == comment.postkey %}
+        <p class="comment-content">{{ comment.author }} says: {{ comment.comment }}</p>{% endif %}{% endfor %}</div>
+</div>
+{% endfor %} {% endblock content %}

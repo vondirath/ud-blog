@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block login %}
+<a href="/">Home</a>
+<form method="post">
+    <table>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input type="text" name="username" value="{{username}}">
+            </td>
+            <td class="error">
+                {{error_username}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input type="password" name="password" value="">
+            </td>
+            <td class="error">
+                {{error_password}}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Log in">
+</form>
+{% endblock %}

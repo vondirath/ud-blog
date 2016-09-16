@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="border"></div>
+<div class="jumbotron">
+<h2>New Post</h2>
+    <form method="post">
+      <label>
+        <div>Subject</div>
+        <input type="text" name="subject" value="{{subject}}">
+      </label>
+      <br>
+      <label>
+        <div>Content</div>
+        <textarea name="content">{{content}}</textarea>
+      </label>
+      <br>
+      <input type="hidden" name="mode" value="newpost">
+      <input type="submit">
+<div class="error">{{post_error}}</div>
+</form>
+</div>
+{% endblock content %}

@@ -1,0 +1,194 @@
+/*Global*/
+
+/*
+non-production version of zocial leads to slow load times! 
+*/
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+[class*="zocial-"]:before {
+    font-family: "zocial", sans-serif;
+}    * {
+    box-sizing: border-box; 
+    font-family: Geneva, Tahoma, Verdana, sans-serif; 
+    text-decoration: none;
+    color: #2d3c49;
+}
+
+/*Head*/
+
+.error {
+    float: none;
+    color: firebrick;
+    font-size: 1.15em;
+    margin-bottom: -20px;
+}
+
+.err-nav {
+    float: right;
+}
+
+.title {
+    text-align: right; 
+}
+
+.navs {
+    text-align: left;
+}
+
+.loginstatus {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.newpost {
+    text-align: left;
+}
+
+/* Body */
+
+.index-comment {
+    width: 90%;
+    margin-top: 20px;
+}
+
+.reply-comment {
+    width: 90%;
+}
+
+@media screen and (max-width: 600px) {
+    .col-xs-5 {
+        width: 100%; 
+    }
+}
+
+/* in view */
+
+.reply-view {
+    width: 60%;
+    margin: 20px;
+}
+
+.view-comment {
+    width: 80%;
+    margin: 20px;
+}
+.well-small {
+    background-color: 0;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.reply-content {
+    border-top: 0.02em solid black;
+    border-bottom: 0.02em solid black; 
+}
+
+.comment-content {
+    font-size: 1em;
+}
+
+.reply-content {
+    font-size: 0.75em;
+}
+
+.comm_rep {
+    overflow: scroll;
+    max-height: 500px;
+    margin-top: 15px;
+}
+
+.formm {
+    float: left;
+}
+
+.label {
+    color: #2d3c49;
+}
+
+.buttoninput {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.border {
+    border: solid #2d3c49 0.125em;
+}
+
+a {
+    text-decoration: none;
+    color: #2d3c49;
+}
+
+body {
+    margin-top: 85px;
+    margin-bottom: 65px;
+}
+
+.postdatetime {
+    font-size: 0.75em;
+    float: right;
+}
+
+.post {
+    height: 100%;
+}
+/*Footer */
+
+/*
+test more
+
+.footer {
+    background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+*/
+
+.social-button {
+    color: #2d3c49; 
+    height: 48px; 
+    width: 48px;
+    font-size: 2em; 
+    transition: 1s; 
+}
+
+
+@keyframes highlight {
+    0% {
+        background-color: white; 
+        color: #2d3c49; 
+    }
+    
+    25% {
+        background-color: #ddF5fb; 
+        color: #949ba1; 
+    }
+    
+    50% {
+        background-color: #bdebF8; 
+        color: #c8cccF; 
+    }
+    
+    75% {
+        background-color: #7dd8f1; 
+        color: #dcdee1; 
+    }
+    
+    100% {
+        background-color: #02b3e4; 
+        color: white; 
+    }
+}
+
+
+.social-button:hover {
+    border-radius: 4px; 
+    animation-name: highlight; 
+    animation-duration: 0.25s; 
+    background-color: #02b3e4; 
+    color: white; 
+    text-decoration: none;
+}
