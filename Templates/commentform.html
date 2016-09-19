@@ -1,8 +1,9 @@
-<!-- New Comment Form -->
+{# new comment template #}
 {% extends "index.html"%}
 {% block content %}
 <div class="row">
     <div class="border"></div>
+    <div class="panel panel-large">
     {% if post %}
     <div class="col-sm-3">
         Last Modified: {{post.modified.strftime("%m/%d/%y")}}
@@ -15,7 +16,6 @@
         <p> {{ post.content }} </p>
     </div>
     {% endif %}
-</div>
 <form method="post">
 <label>
 <p>Comment Here</p>

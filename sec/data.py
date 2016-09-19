@@ -10,10 +10,10 @@ class PostData(db.Model):
     author = db.StringProperty(required=True)
     date = db.DateTimeProperty(auto_now_add=True)
     modified = db.DateTimeProperty(auto_now=True)
-    commentsnb = db.IntegerProperty(default=0)
     edited = db.BooleanProperty(default = False)
-    addscore = db.IntegerProperty(default=0)
-    delscore = db.IntegerProperty(default=0)
+    upscore = db.IntegerProperty(default=0)
+    downscore = db.IntegerProperty(default=0)
+    voter_list = db.StringListProperty()# handles duplicate likes
 
 
 class CommentData(db.Model):
@@ -33,7 +33,6 @@ class UserData(db.Model):
     username = db.StringProperty(required=True)
     pw_hash = db.StringProperty(required=True)
     email = db.StringProperty()
-    score = db.IntegerProperty(default=0)
 
 
     @classmethod
@@ -45,3 +44,4 @@ class UserData(db.Model):
     def by_name(self, name):
         data = UserData.all().filter('Username =', name).fetch(1)
         return data
+        

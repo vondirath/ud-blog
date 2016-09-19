@@ -1,21 +1,21 @@
-{# formatted this way for excessive whitespace generation #}
-{% extends "index.html" %} {% block content %} {% if error %}
-<div class="error">{{error}}</div>
-{% endif %} {% for post in posts %}
-<div class="post row">
-    <div class="border"></div>
-    <div class="col-sm-7">
-        <a href="/blog/{{post.key().id()}}">View Post</a>
-        <h3>{{post.subject}}</h3>
-        <p>{{post.content}}</p>
-        <div class="postdatetime">
-            {{post.date.strftime("%b %d, %Y") | safe}} by: {{post.author}}<br>{% if post.edited == True %} Edited: {{post.modified.strftime("%m/%d/%y")}} {% endif %}
+{# formatted in-line for excessive whitespace generation #}
+{# this is the main render for /blog #}
+{% extends "index.html" %}
+{% block content %}
+{% for post in posts %}
+<div class="row">
+<div class="col-xs-12 panel panel-default">
+        <h3 class="panel-heading">{{post.subject}}</h3>
+            {% if error %}<div class="error">{{error}}</div>{% endif %}
+        <p class="panel-body">{{post.content}}</p>
+        <div>
+        <a href="/blog/{{post.key().id()}}">View Post  |</a><span>  {{post.date.strftime("%b %d, %Y") | safe}}  |  by: {{post.author}}  |  </span>score: <span class="badge">{{post.upscore - post.downscore}}</span><span class="edited">{% if post.edited == True %} |   Edited: {{post.modified.strftime("%m/%d/%y")}}</span> {% endif %}
         </div>
-    </div>
-    <div class="col-xs-5">
+    <div>
         {% if user %}
-        <a href="/blog/comment?post_id={{post.key().id()}}">Write a comment...</a>
-        <br> {% endif %}{% for comment in comments %}{% if post.key().id() == comment.postkey %}
-        <p class="comment-content">{{ comment.author }} says: {{ comment.comment }}</p>{% endif %}{% endfor %}</div>
+        <div class="label label-default"><a class="commentor" href="/blog/comment?post_id={{post.key().id()}}">Write a comment...</a></div>
+        <br> {% endif %}<ul class="list-group">{% for comment in comments %}{% if post.key().id() == comment.postkey %}
+        <li class="list-group-item">{{ comment.author }} says: {{ comment.comment }}</p>{% endif %}{% endfor %}</ul></div>
+    </div>
 </div>
 {% endfor %} {% endblock content %}
