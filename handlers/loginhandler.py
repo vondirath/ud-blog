@@ -7,6 +7,7 @@ from google.appengine.ext import db
 
 
 def user_exists(username):
+    """ this will search database for an existing user"""
     username_exists = db.GqlQuery("SELECT * "
                                   "FROM UserData "
                                   "WHERE username = :exist",
@@ -50,7 +51,7 @@ class RegisterHandler (MainHandler):
         password = self.request.get('password')
         verify = self.request.get('verify')
         email = self.request.get('email')
-
+        
 # dictionary to store username and email if error
         params = dict(username=username, email=email)
 
