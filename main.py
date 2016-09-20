@@ -1,8 +1,6 @@
 # [START IMPORTS]
 import webapp2
 from google.appengine.ext import db
-from sec.passauth import *
-from sec.data import *
 from handlers.loginhandler import (RegisterHandler,
 LoginHandler, LogoutHandler )
 from handlers.mainhandler import (MainHandler,

@@ -21,7 +21,7 @@ class CommentData(db.Model):
     author = db.StringProperty(required=True)
     comment = db.TextProperty(required=True)
     date = db.DateTimeProperty(auto_now_add=True)
-
+    #allows you to gain comment by postkey of postdata
     @classmethod
     def by_postkey(self, id):
         k = CommentData.all().filter(

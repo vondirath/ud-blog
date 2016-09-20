@@ -6,7 +6,7 @@ from mainhandler import MainHandler
 
 # Handler for new posts
 class NewPostHandler (MainHandler):
-
+    """This is the handler for a new post it uses the mainhandler render to create a page"""
     def get(self):
         mode = self.request.get('mode')
         username = self.get_user()
@@ -26,7 +26,7 @@ class NewPostHandler (MainHandler):
             error = "Please Login"
             self.render('mainpage.html', error=error)
         if subject and content:
-            # makes sure spaces are not entered as comments...
+            # makes sure spaces are not entered as comments
             if subject.strip() == '' or content.strip() == '':
                 mode = 'newpost'
                 post_error = "Comments cannot be blank"
@@ -55,7 +55,7 @@ class NewPostHandler (MainHandler):
 
 # handler for a single post
 class ViewPostHandler (MainHandler):
-    # for less code, initilization
+    """initializes a post view where a bulk of the edit and comment features are located"""
     def init(self, keyid):
         username = self.get_user()
         post = self.get_post(keyid)
@@ -94,7 +94,10 @@ class ViewPostHandler (MainHandler):
 
 # Handler for post edits
 class EditPostHandler (MainHandler):
-
+    """ 
+    takes post info and compares users for authorization
+    will make sure posts injected content is included    
+    """
     def init(self):
         username = self.get_user()
         keyid = self.request.get('post_id')
@@ -143,6 +146,8 @@ class EditPostHandler (MainHandler):
 
 # Handler for Deleting posts
 class DeletePostHandler (MainHandler):
+    """will take page in and make sure someone is not trying 
+    to access a post they are not authorized to modify"""
     # redirects if someone else tries to access delete
     def get(self, post_id):
         error = "Not authorized"
