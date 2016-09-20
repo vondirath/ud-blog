@@ -1,0 +1,29 @@
+{# new comment template #}
+{% extends "index.html"%}
+{% block content %}
+<div class="row">
+    <div class="border"></div>
+    <div class="panel panel-large">
+    {% if post %}
+    <div class="col-sm-3">
+        Last Modified: {{post.modified.strftime("%m/%d/%y")}}
+        <h2 class="view-post-title">
+            {{ post.subject }}
+        </h2>
+        <p>by: {{ post.author }}</p>
+    </div>
+    <div class="view-post-content span9">
+        <p> {{ post.content }} </p>
+    </div>
+    {% endif %}
+<form method="post">
+<label>
+<p>Comment Here</p>
+<textarea name="comment"> {{comment}} </textarea>
+</label>
+<br>
+<input type="hidden" name="mode" value="newcomment">
+<input type="submit" name="submit" value="Submit">  <button onclick="goBack()">Cancel</button>
+</form>
+</div>
+{% endblock%}

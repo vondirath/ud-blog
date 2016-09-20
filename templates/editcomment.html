@@ -1,0 +1,16 @@
+{# edit comment template #}
+{% extends "index.html" %}
+{% block content %}
+<div class="panel panel-default">
+  <form action="" method="post" id="BlogPostForm">
+	<fieldset class="postForm">
+		<span class="error">{{error}}</span><br>
+		<label for="content">Content</label><br>
+<textarea class="postContent" name="comment">{{comment}}</textarea>
+	</fieldset>
+    <fieldset class="accountAction">
+		<input type="submit" class="btn btn-primary" name="submit" value="Submit">  <button onclick="goBack()">Cancel</button>
+        </fieldset>
+    </form>
+    </div>
+{% endblock content %}

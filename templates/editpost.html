@@ -1,0 +1,23 @@
+{# edit post template #}
+{% extends "index.html" %}
+{% block content %}
+<div class="border"></div>
+<div class="panel panel-default">
+<h3 class="panel">Edit Post</h3>
+    <form method="post">
+      <label>
+        <div>Subject</div>
+        <input type="text" name="subject" value="{{subject}}">
+      </label>
+      <br>
+      <label>
+        <div>Content</div>
+        <textarea name="content">{{content}}</textarea>
+      </label>
+      <br>
+      <input type="hidden" name="mode" value="edit">
+      <input type="submit"> <button onclick="goBack()">Cancel</button>
+<div class="error">{{post_error}}</div>
+</form>
+</div>
+{% endblock content %}
